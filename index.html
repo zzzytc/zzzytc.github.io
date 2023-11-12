@@ -1,22 +1,23 @@
 <!DOCTYPE html>
-<!-- saved from url=(0061)https://course.cse.ust.hk/comp2011/assigns/pa2/web/index.html -->
+<!-- saved from url=(0045)https://course.cse.ust.hk/comp2011/labs/lab7/ -->
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     
-    <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
-    <meta content="" name="description">
-    <meta content="" name="author">
-    <title>COMP2011 PA2</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>COMP2011 Lab 7</title>
     <!-- Bootstrap core CSS -->
-    <link href="./COMP2011 PA2_files/bootstrap.min.css" rel="stylesheet">
-    <link href="./COMP2011 PA2_files/simple-sidebar.css" rel="stylesheet">
+    <link rel="stylesheet" href="./COMP2011 Lab 7_files/bootstrap.min.css">
+    <link rel="stylesheet" href="./COMP2011 Lab 7_files/simple-sidebar.css">
 
     <!-- Prism -->
-    <link href="./COMP2011 PA2_files/prism.css" rel="stylesheet">
+    <link rel="stylesheet" href="./COMP2011 Lab 7_files/prism.css">
 
     <!-- Style for code input (for sample input/output)-->
     <style>
         .input {
-            color: #009900;
+            color: #00ff00;
         }
     </style>
 
@@ -30,34 +31,45 @@
         // 
         // ===========================================================
 
-        const title = "COMP2011 PA2";
-        const ta_name3 = "TIAN, Xiangan";
-        const ta_email3 = "xtianae@cse.ust.hk";
-        const lab_submission_filename = "pa2.cpp";
-        const command_compile_source = "g++ -std=c++11 pa2.cpp -o pa2";
-        const submission_deadline = "11-Nov-2023 23:59";
-        const wrong_filenames = "(e.g., PA2.cpp, Pa2.cpp, pa2.cpp.cpp, pa 2.cpp (a space is added between pa and 2) etc. )";
+        const title = "COMP2011 Lab 7";
+        const ta_name = "ZHENG Kexin \n WANG Yuxin";
+        const ta_email = "kzhengaj@cse.ust.hk \n ywangom@cse.ust.hk";
+        const lab_submission_filename = "lab7.cpp";
+        const command_compile_source = "g++ -std=c++11 -o lab7 main.cpp lab7.cpp util.cpp";
+        const command_run_mac_linux = "./lab7 < testcase/input1.txt > myOutput1.txt";
+        const command_run_win = "Get-Content testcase/input1.txt | ./lab7 > myOutput1.txt";
 
+        function fillText(id, text) {
+            const elm = document.getElementById(id);
+            if (elm) {
+                elm.innerText = text;
+            }
+        }
+        function updateLink(id, url) {
+            const elm = document.getElementById(id);
+            if (elm) {
+                elm.setAttribute("href", url);
+            }
+        }
+        function fillAllTextByClassName(className, text) {
+            for (const c of document.getElementsByClassName(className)) {
+                c.innerText = text;
+            }
+        }
 
         document.addEventListener("DOMContentLoaded", (event) => {
 
             // logics to update the lab content when the DOM is ready
 
             document.title = title;
-            document.getElementById("sidebar-heading").innerText = title;
-            document.getElementById("page-title").innerText = title;
-            document.getElementById("ta_name3").innerText = ta_name3;
-            document.getElementById("ta_email3").innerText = ta_email3;
-            document.getElementById("command_compile_source").innerText = command_compile_source;
-            document.getElementById("submission_deadline").innerText = submission_deadline;
-            document.getElementById("wrong_filenames").innerText = wrong_filenames;
-
-
-            for (const c of document.getElementsByClassName("lab_submission_filename")) {
-                if (c) c.innerText = lab_submission_filename;
-            }
-
-
+            fillText("sidebar-heading", title);
+            fillText("page-title", title);
+            fillText("ta_name", ta_name);
+            fillText("ta_email", ta_email);
+            fillText("command_compile_source", command_compile_source);
+            fillText("command_run_mac_linux", command_run_mac_linux);
+            fillText("command_run_win", command_run_win);
+            fillAllTextByClassName("lab_submission_filename", lab_submission_filename);
         });
 
     </script>
@@ -69,39 +81,30 @@
         <!-- Sidebar -->
         <div class="bg-light border-right" id="sidebar-wrapper">
             <div class="sticky-top">
-                <div class="sidebar-heading" id="sidebar-heading">COMP2011 PA2</div>
+                <div class="sidebar-heading" id="sidebar-heading">COMP2011 Lab 7</div>
                 <div class="list-group list-group-flush">
 
-                    <a class="list-group-item list-group-item-action bg-light" href="https://course.cse.ust.hk/comp2011/assigns/pa2/web/index.html#section-introduction">Introduction</a>
+                    <a href="https://course.cse.ust.hk/comp2011/labs/lab7/#section-introduction" class="list-group-item list-group-item-action bg-light">Introduction</a>
+
+                    <a href="https://course.cse.ust.hk/comp2011/labs/lab7/#section-tasks" class="list-group-item list-group-item-action bg-light">Task</a>
 
 
-                    <a class="list-group-item list-group-item-action bg-light" href="https://course.cse.ust.hk/comp2011/assigns/pa2/web/index.html#section-coding-tasks">Coding
-                        Tasks</a>
-                    <a class="list-group-item list-group-item-action bg-light" href="https://course.cse.ust.hk/comp2011/assigns/pa2/web/index.html#section-skeleton-code">Skeleton
-                        Code</a>
+                    <a href="https://course.cse.ust.hk/comp2011/labs/lab7/#section-sample-input-output" class="list-group-item list-group-item-action bg-light">Sample Input/Output</a>
 
-                    <!--
-<a href="#section-sample-executable" class="list-group-item list-group-item-action bg-light">Sample
-Executable</a>
--->
-                    <a class="list-group-item list-group-item-action bg-light" href="https://course.cse.ust.hk/comp2011/assigns/pa2/web/index.html#section-sample-input-output">Sample Input/Output</a>
-
-                    <a class="list-group-item list-group-item-action bg-light" href="https://course.cse.ust.hk/comp2011/assigns/pa2/web/index.html#section-grading">Grading</a>
+                    <a href="https://course.cse.ust.hk/comp2011/labs/lab7/#checking-before-submission" class="list-group-item list-group-item-action bg-light">Checking Before Submission</a>
 
 
-                    <a class="list-group-item list-group-item-action bg-light" href="https://course.cse.ust.hk/comp2011/assigns/pa2/web/index.html#section-academic-integrity">Academic Integrity</a>
+                    <a href="https://course.cse.ust.hk/comp2011/labs/lab7/#section-grading-scheme" class="list-group-item list-group-item-action bg-light">Grading
+                        Scheme</a>
 
-                    <a class="list-group-item list-group-item-action bg-light" href="https://course.cse.ust.hk/comp2011/assigns/pa2/web/index.html#section-submission">Submission</a>
 
-                    <a class="list-group-item list-group-item-action bg-light" href="https://course.cse.ust.hk/comp2011/assigns/pa2/web/index.html#section-faqs">FAQs</a>
 
 
                     <br>
                     <span class="list-group-item list-group-item-action bg-light">
-
-                        <span id="ta_name3">TIAN, Xiangan</span>
+                        <span id="ta_name">ZHENG Kexin <br> WANG Yuxin</span>
                         <br>
-                        <span id="ta_email3">xtianae@cse.ust.hk</span><br>
+                        <span id="ta_email">kzhengaj@cse.ust.hk <br> ywangom@cse.ust.hk</span><br>
 
 
                 </span></div>
@@ -116,7 +119,7 @@ Executable</a>
                 <div class="col-sm-9">
                     <span class="navbar-toggler-icon" id="menu-toggle"></span>
                 </div>
-                <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbarSupportedContent" data-toggle="collapse" type="button">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -131,915 +134,288 @@ Executable</a>
                 <div class="mume markdown-preview  ">
 
 
-                    <h1 class="mume-header" id="page-title">COMP2011 PA2</h1>
-                    <h2>Recursive L-Shape Square Filling</h2>
+                    <h1 class="mume-header" id="page-title">COMP2011 Lab 7</h1>
 
                     <figure class="figure mx-auto d-block">
-                        <img alt="Responsive image" class="figure-img mx-auto d-block" src="./COMP2011 PA2_files/front.png" style="max-width:65%;">
+                        <img src="./COMP2011 Lab 7_files/order.png" class="figure-img mx-auto d-block" alt="Responsive image" style="max-width:30%;">
                     </figure>
 
-                    <p style="text-align: left;">
+                    <p style="text-align: center;">
+
                         <em>
-                            This programming assignment provides an opportunity to practice writing recursive functions
-                            to solve a challenging puzzle. You will implement a C++ program to fill in L-shapes in a
-                            square with exactly one hole (empty cell).
+                            Reordering students for course registration
                         </em>
                     </p>
 
+                    <p>
+                        In this lab, you will practise using <b>struct</b> and <b>pointer</b> to complete the student ordering process of a simple course registration system.
+                    </p>
 
                     <h2 class="mume-header" id="section-introduction">Introduction</h2>
 
                     <p>
-                        Recursion is a powerful programming technique where a function calls itself. It is well-suited
-                        for solving problems that can be broken down into <strong><em>smaller subproblems</em></strong>
-                        of the same type.
-                    </p>
-                    <p>To solve a recursive problem, it is important to define the following:
-                    </p><ul>
-                        <li><strong>Base case</strong>: a condition in the recursive function that does not lead to
-                            further recursive calls. It's a scenario where the problem can be solved without further
-                            recursion.</li>
-                        <li><strong>General (Recursive) case</strong>: the part of the function that includes the
-                            recursive call. It should break down the problem into smaller, simpler instances of the same
-                            problem.</li>
-                        <li><strong>Progress towards the base case</strong>: each recursive call should bring you closer
-                            to the base case. If it doesn't, the recursion could go on indefinitely and cause a stack
-                            overflow.</li>
-                    </ul>
-                    <p></p>
-                    <p>You may consider splitting filling the whole square into subproblems such as filling subsquares.
-                    </p>
-                    <p>
-                        Upon completing this project assignment, you will achieve the following learning outcomes:
-                    </p><ul>
-                        <li>Proficiency in utilizing recursion to solve complex programming problems.
-                        </li>
-                        <li>Mastery of data structures, such as 2-D arrays, to represent and manipulate information.
-                        </li>
-                        <li>
-                            Skillful in organizing your program through functions, enhancing its structure and
-                            maintainability.
-                        </li>
-                    </ul>
+                        The task for this lab is to write a simple program to reorder studnets for course registration.
+                        </p><ul>
+                            <li>The <b>Student</b> struct stores the name of student, their student id and year of study.</li>
+                            <li>The students are initially ordered based on their operation timestamp.</li>
+                            <li>Since students near graduation might need to register courses to fulfill graduation requirement, students at higher <b>yearOfStudy</b> will be assigned higher priority in the registration process.(e.g. If a Year 3 student is ordered before a Year 4 student in the array, their place in the array should be swapped)</li>
+                        </ul>
+
                     <p></p>
 
-                    <h2 class="mume-header" id="section-robot-operations">Problem Description</h2>
-                    <p>Given a <strong>square</strong> grid (a 2-D array called puzzleMap) of size 2<sup>N</sup> x
-                        2<sup>N</sup> (N = 1, 2,
-                        3), you
-                        need to fill
-                        the grid with
-                        L-shaped blocks with the given <strong>one empty cell</strong>.</p>
-                    <p>Please note that the algorithm works in all positive integers N. We restrict N to 3 because we
-                        use 21 letters to represent at most 21 L-shapes in an 8x8 square. It is hard to have meaningful
-                        characters if N is larger than 3.</p>
-                    <p>The program accepts the following inputs:</p>
-                    <ul>
-                        <li>The width / height of the grid (either 2, 4, or 8).</li>
-                        <li>The x and y coordinates of the empty cell (which should lie <strong>within</strong> the
-                            grid).
-                        </li>
-                        <li>The output mode:
-                            <ul>
-                                <li>0: Exit directly for testing checkInput function;</li>
-                                <li>1: Output Quadrant of the empty cell;</li>
-                                <li>2 for console output without normalization;</li>
-                                <li>3 for console output with normalization.</li>
-                            </ul>
-                            The normalization process will be explained later.
-                        </li>
-                    </ul>
-                    <p>The number of L-shaped blocks:</p>
-                    <ul>
-                        <li>2 x 2 square = 1 L-shapes and 1 empty cell (3 filled cells + 1 empty cell).</li>
-                        <li>4 x 4 square = 5 L-shapes and 1 empty cell (15 filled cells + 1 empty cell).</li>
-                        <li>8 x 8 square = 21 L-shapes and 1 empty cell (63 filled cells + 1 empty cell).</li>
-                    </ul>
+                    <h2 class="mume-header" id="section-tasks">Task</h2>
 
-
-                    <h3 id="sub-section-coordinate">Coordinate</h3>
-                    <p>A coordinate, (x, y), can be used to represent an element in the 2-D array (e.g., puzzleMap in
-                        this assignment). The coordinate system is zero-indexed, meaning it starts from 0. It's worth
-                        noting that coordinate <strong>(x, y)</strong> corresponds to <strong>array_2d[x][y]</strong>.
-                        Please compare carefully the grid and the actual data stored in puzzleMap.</p>
-                    <p>Here is an example of representations of an empty cell in coordinate system and in the grid
-                        (2D-array):</p>
-                    <div class="table-responsive">
-                        <table class="table">
-
-
-                            <tbody><tr>
-                                <th style="width:25%;">Coordinate</th>
-                                <th style="width:25%;">Grid</th>
-                                <th style="width:25%">Grid, Visualized</th>
-                                <th style="width:25%;">puzzleMap Data</th>
-                            </tr>
-
-                            <tr>
-                                <td> <img alt="Responsive image" class="mx-auto d-block" src="./COMP2011 PA2_files/coordinate.png" style="max-height:300px;"></td>
-                                <td>
-                                    <pre class=" language-none"><code class=" language-none">C C D D H H I I
-C B B D H G G I
-F B E E K K G J
-F F E A A K J J
-R R S   A M N N
-R Q S S M M L N
-U Q Q T P L L O
-U U T T P P O O</code></pre>
-                                </td>
-                                <td>
-                                    <img alt="Responsive image" class="mx-auto d-block" src="./COMP2011 PA2_files/coordinate_grid.png" style="max-height:300px;">
-                                </td>
-                                <td>
-                                    <pre class=" language-none"><code class=" language-none">[[C, C, F, F, R, R, U, U],
- [C, B, B, F, R, Q, Q, U],
- [D, B, E, E, S, S, Q, T],
- [D, D, E, A,  , S, T, T],
- [H, H, K, A, A, M, P, P],
- [H, G, K, K, M, M, L, P],
- [I, G, G, J, N, L, L, O],
- [I, I, J, J, N, N, O, O]]</code></pre>
-                                </td>
-                            </tr>
-                        </tbody></table>
-                    </div>
-
-
-                    <h3 id="sub-section-l-shape">L-Shape</h3>
-
-                    <p>An L-shaped block, in the context of this problem, is a group of three cells that forms the shape
-                        of
-                        the Letter <strong>"L"</strong>.
-                        There are four different L-shapes:</p>
-
-
-                    <figure class="figure mx-auto d-block">
-                        <img alt="Responsive image" class="figure-img mx-auto d-block" src="./COMP2011 PA2_files/l_shapes.png" style="max-width:50%;">
-                    </figure>
-
-
-                    <h3 id="sub-section-quadrant">Quadrant</h3>
-                    <p>In this problem, a “quadrant” refers to one of four equal parts into which the grid or puzzle map
-                        is
-                        divided.
-                        Given a grid of size 2<sup>N</sup> x 2<sup>N</sup>, it can be divided into four smaller grids
-                        (or
-                        quadrants) each of
-                        size
-                        2<sup>(N-1)</sup> x 2<sup>(N-1)</sup>.</p>
-
-                    <figure class="figure mx-auto d-block">
-                        <img alt="Responsive image" class="figure-img mx-auto d-block" src="./COMP2011 PA2_files/quadrant.png" style="max-width:45%;">
-                    </figure>
-
-                    <h3 id="sub-section-base-case">Base Case</h3>
-                    The base case is the simplest instance of the problem. In this problem, the base case is when the
-                    size
-                    of the grid is 2x2 (i.e., size == 2). A 2x2 grid is the smallest grid that can be filled with an
-                    L-shaped block.
-
-                    <figure class="figure mx-auto d-block">
-                        <img alt="Responsive image" class="figure-img mx-auto d-block" src="./COMP2011 PA2_files/base_case.png" style="max-width:50%;">
-                    </figure>
-
-
-                    <h3 id="sub-section-general-case">General Case</h3>
-
-                    <p>For the general case, the function divides the larger grid into four smaller quadrants. It then
-                        identifies in which quadrant the <strong>empty cell resides</strong> and leaves that quadrant
-                        as it is. In the
-                        remaining three quadrants, it marks the cell that is diagonally adjacent to the empty cell in
-                        the
-                        center of the larger grid. This creates a new L-shaped block and <strong>four new
-                            sub-problems</strong> (one for
-                        each
-                        quadrant), each with one marked cell.</p>
-                    <p>The function then recursively calls itself on each of these sub-problems. This process repeats
-                        until
-                        it reaches the base case, at which point it starts filling the grid with L-shaped blocks.</p>
-
-                    <figure class="figure mx-auto d-block">
-                        <img alt="Responsive image" class="figure-img mx-auto d-block" src="./COMP2011 PA2_files/general_case.png" style="max-width:80%;">
-                    </figure>
-
-                    <h3 id="sub-section-normalization">Normalization</h3>
-                    <p>Because different implementations of the same algorithm may fill the grid with
-                        <strong>different orders</strong> (same shape, but different orders of characters), we need to
-                        normalize our results to ensure the shape filling follows alphabetical order from <strong>left
-                            to right</strong>
-                        and from <strong>top to bottom</strong>. To normalize a result, you need to scan each row of the
-                        grid from top to
-                        bottom. To scan a row, you iterate it from left to right, replacing characters are not in
-                        alphabetical order.
-                    </p>
-                    <p>Here are some normalization examples:</p>
-                    <div class="table-responsive">
-                        <table class="table">
-                            <tbody>
-                                <!-- <tr>
-                                    <th style="width:40%;">Original</th>
-                                    <th style="width:40%;">Normalized</th>
-                                </tr> -->
-                                <tr>
-                                    <td>
-                                        <pre class=" language-none"><code class=" language-none">Before normalization:
-  0 1
-0:  A
-1:A A</code></pre>
-                                    </td>
-                                    <td>
-                                        <pre class=" language-none"><code class=" language-none">After normalization:
-  0 1
-0:  A
-1:A A</code></pre>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <pre class=" language-none"><code class=" language-none">Before normalization:
-  0 1 2 3
-0:  B C C
-1:B B A C
-2:E A A D
-3:E E D D</code></pre>
-                                    </td>
-                                    <td>
-                                        <pre class=" language-none"><code class=" language-none">After normalization:
-  0 1 2 3
-0:  A B B
-1:A A C B
-2:D C C E
-3:D D E E</code></pre>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <pre class=" language-none"><code class=" language-none">Before normalization:
-  0 1 2 3
-0:B B C C
-1:B A A C
-2:E A D D
-3:E E D</code></pre>
-                                    </td>
-                                    <td>
-                                        <pre class=" language-none"><code class=" language-none">After normalization:
-  0 1 2 3
-0:A A B B
-1:A C C B
-2:D C E E
-3:D D E</code></pre>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <pre class=" language-none"><code class=" language-none">Before normalization:
-  0 1 2 3 4 5 6 7
-0:C C D D H H I I
-1:C B B D H G G I
-2:F B E E K K G J
-3:F F E   A K J J
-4:R R S A A M N N
-5:R Q S S M M L N
-6:U Q Q T P L L O
-7:U U T T P P O O</code></pre>
-                                    </td>
-                                    <td>
-                                        <pre class=" language-none"><code class=" language-none">After normalization:
-  0 1 2 3 4 5 6 7
-0:A A B B C C D D
-1:A E E B C F F D
-2:G E H H I I F J
-3:G G H   K I J J
-4:L L M K K N O O
-5:L P M M N N Q O
-6:R P P S T Q Q U
-7:R R S S T T U U</code></pre>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <p>After normalization, we will
-                        have a unified result for any given input (grid width, x and y coordinates of the empty cell).
-                        The console output mode without normalization
-                        is for <strong>debugging purpose only</strong>, and the all the given test cases require
-                        normalized results.
-                        <strong style="color:red;">If your results are not correctly normalized, you will receive
-                            penalties.</strong>
+                    <p>You can download the skeleton code <a href="https://course.cse.ust.hk/comp2011/labs/lab7/lab7.zip">here</a>. The details of the struct are written in <u>lab7.h</u>. Your task is to complete the function <u>lab7.cpp</u>.
                     </p>
 
+                    <h4>Reorder the array of Student to give higher priority to senior students</h4>
+                    <pre class=" language-cpp"><code class=" language-cpp"><span class="token keyword">void</span> <span class="token function">reorder_student</span><span class="token punctuation">(</span>Student<span class="token operator">*</span> queue <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token keyword">int</span> num_students<span class="token punctuation">)</span></code></pre>
+                        <p>
+                        </p><h5>Parameters</h5>
+                        <ul>
+                            <li>
+                                <code class=" language-cpp">queue</code>: an array of pointer to <code class=" language-cpp">Student</code>s. You can assume there will be no <code class=" language-cpp"><span class="token keyword">nullptr</span></code> between two valid student pointers. There will be at least one student in this queue.
+                            </li>
+                            <li>
+                                <code class=" language-cpp">num_students</code>: The number of students currently in the queue.
+                            </li>
+                        </ul>
+                        <h5>Task Description</h5>
+                        <ul>
+                            <li>Reorder the pointers of <code class=" language-cpp">Student</code>s. Students at a higher 
+                                <code class=" language-cpp">yearOfStudy</code> should come first.</li>
+                                <li>You can use <b>Bubble Sort</b> to complete this task. The detailed instruction is shown below:</li>
 
-                    <h2 class="mume-header" id="section-coding-tasks">Coding Tasks</h2>
-
-                    <ul>
-
-
-                        <li>You only need to complete the following <strong>4</strong> coding tasks:
-                            <p><strong>You are not allowed to use global variables in this lab.</strong></p>
-
-                            <p><strong>Task1: Implementing the checkInput function</strong></p>
-
-
-                            <pre class=" language-cpp"><code class=" language-cpp" style="white-space: pre-wrap;"><span class="token comment">// TODO:</span>
-<span class="token comment">// function checkInput:</span>
-<span class="token comment">//</span>
-<span class="token comment">// @param width: the width of the square. Valid values: 2, 4, 8</span>
-<span class="token comment">// You can assume inputs are always integers.</span>
-<span class="token comment">// @param emptyXPos: the x-axis of the empty position.</span>
-<span class="token comment">// Valid range: [0, width-1].</span>
-<span class="token comment">// You can assume inputs are always integers.</span>
-<span class="token comment">// @param emptyYPos: the y-axis of the empty position.</span>
-<span class="token comment">// Valid range: [0, width-1].</span>
-<span class="token comment">// You can assume inputs are always integers.</span>
-<span class="token comment">//</span>
-<span class="token comment">//  Note: The pass-by-reference variables will be used in the main function.</span>
-<span class="token comment">// @return: void</span>
-<span class="token comment">// The function returns after getting valid values for width, emptyXPos and emptyYPos</span>
-<span class="token keyword">void</span> <span class="token function">checkInput</span><span class="token punctuation">(</span><span class="token keyword">int</span> <span class="token operator">&amp;</span>width<span class="token punctuation">,</span> <span class="token keyword">int</span> <span class="token operator">&amp;</span>emptyXPos<span class="token punctuation">,</span> <span class="token keyword">int</span> <span class="token operator">&amp;</span>emptyYPos<span class="token punctuation">)</span>
-<span class="token punctuation">{</span>
-    <span class="token comment">// Some helper lines for you to use:</span>
-    cout <span class="token operator">&lt;&lt;</span> <span class="token string">"Enter the width/height of the puzzle (2, 4, 8): "</span><span class="token punctuation">;</span>
-    cout <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
-    cout <span class="token operator">&lt;&lt;</span> <span class="token string">"Enter the x-coordinate of the empty cell (0-"</span> <span class="token operator">&lt;&lt;</span> width <span class="token operator">-</span> <span class="token number">1</span> <span class="token operator">&lt;&lt;</span> <span class="token string">"): "</span><span class="token punctuation">;</span>
-    cout <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
-    cout <span class="token operator">&lt;&lt;</span> <span class="token string">"Enter the y-coordinate of the empty cell (0-"</span> <span class="token operator">&lt;&lt;</span> width <span class="token operator">-</span> <span class="token number">1</span> <span class="token operator">&lt;&lt;</span> <span class="token string">"): "</span><span class="token punctuation">;</span>
-    cout <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
-    <span class="token keyword">return</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span></code></pre>
-
-
-                            <p><strong>Task2: Implementing the locateQuadrant function</strong>
-                            </p>
-
-                            <pre class=" language-cpp"><code class=" language-cpp" style="white-space: pre-wrap;"><span class="token comment">// TODO:</span>
-<span class="token comment">// function locateQuadrant:</span>
-<span class="token comment">// @param x:  x coordinate of the empty cell</span>
-<span class="token comment">// @param y:  y coordinate of the empty cell</span>
-<span class="token comment">//</span>
-<span class="token comment">// If x &lt; half width, y &lt; half width, then return 1</span>
-<span class="token comment">// If x &gt;= half width, y &lt; half width, then return 2</span>
-<span class="token comment">// If x &gt;= half width, y &gt;= half width, then return 3</span>
-<span class="token comment">// If x &lt; half width, y &gt;= half width, then return 4</span>
-<span class="token comment">//</span>
-<span class="token comment">// @return: int</span>
-<span class="token comment">// The function returns after getting valid values for width, emptyXPos and emptyYPos</span>
-<span class="token keyword">int</span> <span class="token function">locateQuadrant</span><span class="token punctuation">(</span><span class="token keyword">int</span> width<span class="token punctuation">,</span> <span class="token keyword">int</span> x<span class="token punctuation">,</span> <span class="token keyword">int</span> y<span class="token punctuation">)</span>
-<span class="token punctuation">{</span>
-    <span class="token comment">// remove this line to start your work</span>
-    <span class="token keyword">return</span> LOCATEQUADRANT_NOT_IMPLEMENTED<span class="token punctuation">;</span>
-<span class="token punctuation">}</span></code></pre>
-
-
-                            <p><strong>Task3: Implementing the fillPuzzleRecursive
-                                    function</strong></p>
-
-
-                            <pre class=" language-cpp"><code class=" language-cpp" style="white-space: pre-wrap;"><span class="token comment">// TODO:</span>
-<span class="token comment">// [The most important function in this program]</span>
-<span class="token comment">// The recursive function to fill up the character array: puzzleMap</span>
-<span class="token comment">// You need to figure out the parameters of the fillPuzzleRecursive function by yourself</span>
-<span class="token comment">//</span>
-<span class="token keyword">void</span> <span class="token function">fillPuzzleRecursive</span><span class="token punctuation">(</span>__ width<span class="token punctuation">,</span> __ puzzleMap<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">[</span>MAX_WIDTH<span class="token punctuation">]</span><span class="token punctuation">,</span> __ tx<span class="token punctuation">,</span>
-                         __ ty<span class="token punctuation">,</span> __ x<span class="token punctuation">,</span> __ y<span class="token punctuation">,</span> __ <span class="token operator">&amp;</span>nextChar<span class="token punctuation">)</span>
-<span class="token punctuation">{</span>
-    <span class="token comment">// tx: top Left X coordinate</span>
-    <span class="token comment">// ty: top Left Y coordinate</span>
-    <span class="token comment">// x:  x coordinate of the empty cell</span>
-    <span class="token comment">// y:  y coordinate of the empty cell</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span>width <span class="token operator">==</span> <span class="token number">2</span><span class="token punctuation">)</span>
-    <span class="token punctuation">{</span>
-        <span class="token comment">// The base case...</span>
-    <span class="token punctuation">}</span>
-
-    <span class="token comment">// The general case</span>
-    <span class="token comment">//</span>
-    <span class="token comment">// Key idea:</span>
-    <span class="token comment">//  Because qual must be equal to either 1, 2, 3 or 4</span>
-    <span class="token comment">// As a result:</span>
-    <span class="token comment">//    A L-shape MUST be created at the center of the bigger rectangle</span>
-    <span class="token comment">//    Each Quad MUST have exactly 1 empty space</span>
-
-    <span class="token keyword">return</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span></code></pre>
-                            <p><strong>Task4: Implementing the Normalization
-                                    function</strong></p>
-
-
-                            <pre class=" language-cpp"><code class=" language-cpp" style="white-space: pre-wrap;"><span class="token comment">// TODO:</span>
-<span class="token comment">// Normalize the whole puzzleMap. The space character ' ' will not be changed.</span>
-<span class="token comment">//</span>
-<span class="token keyword">void</span> <span class="token function">normalizePuzzleMap</span><span class="token punctuation">(</span><span class="token keyword">int</span> width<span class="token punctuation">,</span> <span class="token keyword">char</span> puzzleMap<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">[</span>MAX_WIDTH<span class="token punctuation">]</span><span class="token punctuation">)</span>
-<span class="token punctuation">{</span>
-
-    <span class="token keyword">return</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span></code></pre>
-
-                        </li>
-
-                    </ul>
-
-                    <h4><span class="badge badge-danger">Checking uninitialized variables</span></h4>
-
-
-                    <p>
-                        Many students forget to initialize the variables before using them.
-                        Sometimes, it will cause serious problems.
-                        In most of the operating systems (e.g., Linux),
-                        variables won't be initialized (i.e., there are garbage values stored if the variables
-                        are not
-                        initialized and being used.)
-                    </p>
-
-                    <p style="text-align: center;"><strong>ZINC is running in Linux, so variables won't be
-                            initialized
-                            automatically.</strong></p>
-
-                    <p>
-                        The following method can ask the compiler to check uninitialized variables. For example,
-                        the
-                        following code is stored in a file named <code class=" language-none">uninitialized_variables.cpp</code>, you
-                        can add a
-                        flag <code class=" language-none">-Wuninitialized</code> to check:
-                    </p>
-
-                    <pre class=" language-none"><code class=" language-none">g++ uninitialized_variables.cpp -Wuninitialized</code></pre>
-
-                    <p>The above technique may be useful for your labs and projects. Here is a demo in vscode:
-                    </p>
-
-                    <p>
-                    </p><figure class="figure mx-auto d-block">
-                        <img alt="Responsive image" class="figure-img mx-auto d-block" src="./COMP2011 PA2_files/demo_check_variables.png" style="max-width:80%;">
-                    </figure>
+                                <img src="./COMP2011 Lab 7_files/bubblesort.png" style="max-width:600px;">
+                                        <ol>
+                                            <li>Start by checking the second student in the list. Compare the second student with the first student. If the second student is at a higher year of study, swap them.</li>
+                                            <li>Move to the third student and compare it with the second student. If the third student is at a higher year of study, swap their positions. </li>
+                                            <li>Continue this process, comparing and possibly swapping until the end of the list. </li>
+                                            <li>After the first pass (steps 1,2, and 3), the last student should be at the lowest year of study. Repeat steps 1,2, and 3 for the remaining students in the list.</li>
+                                            <li>Continue repeating the passes until you reach the start of the list. At this point, the list is sorted, with students in higher years of study placed in front.</li>
+                                        </ol>
+                            <li>For students at the same year of study, their order should follow its initial timestamp.
+                                (e.g. If the original pointer order of 4 students is 'ABCD' where AC are in year 4 and BD are in year 2. The new order should be 'ACBD'.). Using bubble sort can keep this order.
+                            </li>
+                        </ul>
+                        <h5>Hint</h5>
+                        <p>Check the code in <a href="https://course.cse.ust.hk/comp2011/notes/pointer-program.zip">Course Supplementary Material</a> on how to work with pointer array and struct.</p>
                     <p></p>
 
+                    <h2 class="mume-header" id="section-sample-input-output">Sample Input/Output</h2>
+                    <p>After implementing the task in <u>lab7.cpp</u>, you would need to compile it together with the given <u>util.cpp</u> and <u>main.cpp</u>.
+                        <br>
+                        <b>Your only need to submit the <u>lab7.cpp</u> file to ZINC.</b>
+                        <br>
+                    </p>
+                    <p>Sample Input</p>
+                    <pre class="shadow p-3 mb-5 bg-white rounded">1<br>2<br>2<br>3</pre>
+                    <p>Sample Output</p>
+                    <pre class="shadow p-3 mb-5 bg-white rounded">===========================================
+Choose what to do next:
+1: Get student data
+2: Reorder students
+3: Quit
+List student data: 2
+Student Name: Mary   , ID: 1, YearOfStudy: Year 2
+Student Name: Tony   , ID: 2, YearOfStudy: Year 3
+Student Name: Charles, ID: 3, YearOfStudy: Year 4
+===========================================
+Choose what to do next:
+1: Get student data
+2: Reorder students
+3: Quit
+Start reordering students
+Student Name: Charles, ID: 3, YearOfStudy: Year 4
+Student Name: Tony   , ID: 2, YearOfStudy: Year 3
+Student Name: Mary   , ID: 1, YearOfStudy: Year 2
+===========================================
+Choose what to do next:
+1: Get student data
+2: Reorder students
+3: Quit
+Quit program.
+=========================================== 
+                    </pre>
 
-                    <h4><span class="badge badge-danger">Compilation and Running Test Cases</span></h4>
+
+                    <h2 class="mume-header" id="checking-before-submission">Checking Before Submission</h2>
+
+                    <!-- ZINC live testing instructions:
+
+                    <p>Please compare your outputs with the desired outputs in ZINC:
+
+                        <ul>
+                            <li>You should see the following if the test cases are correct:
+
+                                <p>
+                                    <img src="images/zinc_correct_testcases.png"
+                                        style="max-width:300px;"></img>
+                                </p>
+                            </li>
+                            <li>You should see the following if the test cases are wrong:
+
+                                <p>
+                                    <img src="images/zinc_wrong_testcases.png"
+                                        style="max-width:300px;"></img>
+                                </p>
+                            </li>
+                            <li>For the wrong cases, you can click the "Details" button, and then check the side-by-side comparsion</li>
+                            <li>You may see an error report like this  (for illustration, not related to the actual test cases):
+
+                                <p>
+
+                                    <img src="images/zinc_details_side_by_side_for_wrong_cases.png"
+                                        style="max-width:800px;"></img>
+
+                                    <ul>
+                                        <li>The left side is the expected output</li>
+                                        <li>The right side is your program output</li>
+                                        <li>The differences are highlighted in red and green</li>
+                                    </ul>
+
+                                </p>
+
+                            </li>
+                        </ul>
+
+                    </p>
+
+                     -->
 
 
-                    <p>Similar to labs, you should follow similar steps to run the test cases. You won't see
-                        your ZINC
-                        grading report before the deadline.</p>
+                    <!-- 
+                        // Local testing instructions:
+                        // Instructors prefer to use local testing instructions 
+                    -->
 
-                    <p>Limitations of the ZINC system:
-                    </p><ul>
-                        <li><strong>DO NOT</strong> use <strong>cerr</strong> because ZINC cannot grade cerr output. You
-                            can check this problem by following the checking procedures below.
-                            In PA2, you <strong>CANNOT</strong> add extra cin/cout statements, so it won't cause any
-                            issues.
-			(Edited on 1-Nov: adding cin is allowed in Task1: Implementing the checkInput function because you need to ask the user to input some values).
-                        </li>
-                        <li><strong>DO NOT</strong> return a non-zero return code in the main function. ZINC will treat
-                            your program as "crash" and won't continue the grading.
-                            In PA2, you <strong>CANNOT</strong> modify the main function, so it won't cause any issues.
-                        </li>
-                    </ul>
-                    <p></p>
+                    <p><strong style="color:red;">Please use the following methods to accurately check your program
+                            output against the sample output.
+                            It avoids simple mistakes (e.g., typo mistakes) that cause marks deduction in ZINC.
+                        </strong></p>
+
+                        <ul>
+                            <li><strong>DO NOT</strong> use <strong>cerr</strong> because ZINC cannot grade cerr output. You can check this problem by following the checking procedures below.
+                         
+                            </li><li><strong>DO NOT</strong> return a non-zero return code (e.g., return -1;) in the main function. ZINC will treat your program as "crash" and won't continue the grading.
+                         
+                        </li></ul>
 
                     <p>Please compare your outputs with the desired outputs:
                     </p><ul>
+
+
                         <li>In VSCode, please open the terminal by one of the following two ways:
                             <ul>
-                                <li>Press the key Ctrl+Shift+` in Windows/Linux, or Control+Shift+Backquote in
-                                    Mac
-                                </li>
+                                <li>Press the key Ctrl+Shift+` in Windows/Linux, or Control+Shift+Backquote in Mac</li>
                                 <li>From the menubar, select Terminal &gt; New Terminal</li>
                             </ul>
                             And then run this code to compile your code:
-                            <pre class="shadow p-3 mb-1 bg-white rounded"><span id="command_compile_source">g++ -std=c++11 pa2.cpp -o pa2</span></pre>
+                            <pre class="shadow p-3 mb-1 bg-white rounded"><span id="command_compile_source">g++ -std=c++11 -o lab7 main.cpp lab7.cpp util.cpp</span></pre>
                         </li>
-                        <li>After that, you can compare your own outputs with the desired outputs one
-                            by one.
-                        </li>
-                    </ul>
-                    <p></p>
-
-                    <h4><span class="badge badge-danger">A Sample Executable in Virtual Barn</span></h4>
-
-                    <p>Students may use different operating systems (e.g., Windows/Mac/Linux), so the executable file is
-                        prepared in Virtual Barn.</p>
-                    <p>If you want to run the sample executable, you should follow <a href="https://course.cse.ust.hk/comp2011/assigns/pa2/web/run_pa2_exe.html">
-                            How to run pa2.exe?</a> tutorial
-                    </p>
-
-
-                    <!--
-<h2 class="mume-header" id="section-sample-executable">Sample Executable</h2>
-TODO: to be prepared after receiving reviews from the instructors and finalizing the design
--->
-                    <h2 class="mume-header" id="section-skeleton-code">Skeleton Code</h2>
-
-                    <p>
-
-                        A skeleton code: <strong>
-                            <a href="https://course.cse.ust.hk/comp2011/assigns/pa2/web/pa2_skeleton.zip">pa2_skeleton.zip</a>
-                        </strong></p> is provided.
-                    <br>
-                    Sample input and output files are included in the zip file.
-                    <br>
-
-
-                    <ul>
-                        <li><strong>DO NOT</strong> start from scratch.</li>
-                        <li>You can search the keyword <strong>TODO</strong> in the skeleton code to locate the parts
-                            you need to implement
-                        </li>
-                        <li><strong>READ</strong> the skeleton code carefully. Many useful things are provided in the
-                            skeleton code
-                        </li>
-                        <li><strong>DO NOT</strong> include extra header files</li>
-                        <li><strong>DO NOT</strong> use global variables</li>
-                        <li><strong>DO NOT</strong> add extra <code language="language-cpp" class=" language-none">cin</code> or <code language="language-cpp" class=" language-none">cout</code> statements
+                        <li>You need to redirect the input of executable program to the txt test case files we provided, and redirect the output to different txt files. Here are the commands:                            :
 
                             <ul>
-                                <li>It is because the input and output handling are given in the skeleton code</li>
-                                <li>ZINC is strict when comparing the output text. ZINC can only skip extra empty lines.
-                                    Extra output statements (e.g., an extra word, an extra sentence, or an extra empty
-                                    space in the middle) may fail the ZINC test cases
+                                <li>In MacOS or Linux:
+                                    <pre class="shadow p-3 mb-1 bg-white rounded"><span id="command_run_mac_linux">./lab7 &lt; testcase/input1.txt &gt; myOutput1.txt</span></pre>
                                 </li>
-                                <li><strong style="color:red;">If you add extra output statements for debugging
-                                        purposes, please remember to delete them before your final code
-                                        submission</strong></li>
+                                <li>In Windows:
+                                    <pre class="shadow p-3 mb-1 bg-white rounded"><span id="command_run_win">Get-Content testcase/input1.txt | ./lab7 &gt; myOutput1.txt</span></pre>
+                                </li>
                             </ul>
 
-
+                            <p>Please replace the filenames accordingly if you would like to check other output files.
+                            </p>
                         </li>
-                        <li>If needed, you can add extra constants, local variables, and extra helper functions</li>
+                        <li>After that, you can compare your own output text files with the desired outputs one by one.
+                            You can
+                            compare any two files by VSCode:
+                            <ul>
+                                <li>Right click the first file you want to compare in VSCode Explorer, choose
+                                    <strong>Select for
+                                        Compare</strong><img class="mx-auto d-block" alt="Responsive image" style="max-height:350px;" src="./COMP2011 Lab 7_files/compare1.png">
+                                </li>
+                                <li>Right click the second file you want to compare in VSCode Explorer, choose
+                                    <strong>Compare with
+                                        Selected</strong><img class="mx-auto d-block" src="./COMP2011 Lab 7_files/compare2.png" alt="Responsive image" style="max-height:350px;">
+                                </li>
+
+                            </ul>
+                        </li>
                     </ul>
                     <p></p>
-                    <h2 class="mume-header" id="section-sample-input-output">Sample Input/Output</h2>
-
-                    <h4>Sample Input/Output for "Get valid Input"</h4>
-                    <strong style="color:red;">The outputs below are "terminal view" to show program interaction. The
-                        "separate view" of inputs/outputs are provided in the skeleton code. We grade based on the
-                        "separate view".</strong>
-                    <p> <strong style="color:red;">"Additional" blank lines will be ignored during grading.</strong></p>
-                    <p>Test case 1 (the case when all inputs are simply valid)</p>
-                    <pre class=" language-none"><code class=" language-none">Enter the width/height of the puzzle (2, 4, 8): 8
-Enter the x-coordinate of the empty cell (0-7): 0
-Enter the y-coordinate of the empty cell (0-7): 3
-0: Exit directly (for testing checkInput function), 1: Output Quadrant of the empty cell,
-2: Output without normalization (for student's debug only), 3: Output with normalization
-Enter the output mode: 0</code></pre>
-                    <p>We provide a separate view for this case. For other cases, please refer to the files in the
-                        skeleton code.</p>
-                    <p>The Input is:</p>
-                    <pre class=" language-none"><code class=" language-none">8
-0
-3
-0</code></pre>
-                    The Output is:
-                    <pre class=" language-none"><code class=" language-none">Enter the width/height of the puzzle (2, 4, 8):
-Enter the x-coordinate of the empty cell (0-7):
-Enter the y-coordinate of the empty cell (0-7):
-0: Exit directly (for testing checkInput function), 1: Output Quadrant of the empty cell,
-2: Output without normalization (for student's debug only), 3: Output with normalization
-Enter the output mode:</code></pre>
-                    <p>Test case 2 (the case when any input is invalid, the program will keep asking for input)</p>
-                    <pre class=" language-none"><code class=" language-none">Enter the width/height of the puzzle (2, 4, 8): 3
-Enter the width/height of the puzzle (2, 4, 8): 1
-Enter the width/height of the puzzle (2, 4, 8): 4
-Enter the x-coordinate of the empty cell (0-3): -2
-Enter the x-coordinate of the empty cell (0-3): 2
-Enter the y-coordinate of the empty cell (0-3): 1
-0: Exit directly (for testing checkInput function), 1: Output Quadrant of the empty cell,
-2: Output without normalization (for student's debug only), 3: Output with normalization
-Enter the output mode: 0</code></pre>
-
-                    <h4>Sample Input/Output for "Get the Quadrant of input"</h4>
-                    <p>Test case 3 </p>
-                    <pre class=" language-none"><code class=" language-none">Enter the width/height of the puzzle (2, 4, 8): 4
-Enter the x-coordinate of the empty cell (0-3): 2
-Enter the y-coordinate of the empty cell (0-3): 2
-0: Exit directly (for testing checkInput function), 1: Output Quadrant of the empty cell,
-2: Output without normalization (for student's debug only), 3: Output with normalization
-Enter the output mode: 1
-Quadrant for the empty cell: 3</code></pre>
-                    <p>Test case 4 </p>
-                    <pre class=" language-none"><code class=" language-none">Enter the width/height of the puzzle (2, 4, 8): 8
-Enter the x-coordinate of the empty cell (0-7): 0
-Enter the y-coordinate of the empty cell (0-7): 7
-0: Exit directly (for testing checkInput function), 1: Output Quadrant of the empty cell,
-2: Output without normalization (for student's debug only), 3: Output with normalization
-Enter the output mode: 1
-Quadrant for the empty cell: 4</code></pre>
-                    <h4>Sample Input/Output for "Correct output with width 2"</h4>
-                    <p>Test case 5 </p>
-                    <pre class=" language-none"><code class=" language-none">Enter the width/height of the puzzle (2, 4, 8): 2
-Enter the x-coordinate of the empty cell (0-1): 0
-Enter the y-coordinate of the empty cell (0-1): 1
-0: Exit directly (for testing checkInput function), 1: Output Quadrant of the empty cell,
-2: Output without normalization (for student's debug only), 3: Output with normalization
-Enter the output mode: 3
-Quadrant for the empty cell: 4
-  0 1
-0:A A
-1:  A</code></pre>
-                    <p>Test case 6 </p>
-                    <pre class=" language-none"><code class=" language-none">Enter the width/height of the puzzle (2, 4, 8): 2
-Enter the x-coordinate of the empty cell (0-1): 0
-Enter the y-coordinate of the empty cell (0-1): 0
-0: Exit directly (for testing checkInput function), 1: Output Quadrant of the empty cell,
-2: Output without normalization (for student's debug only), 3: Output with normalization
-Enter the output mode: 3
-Quadrant for the empty cell: 1
-  0 1
-0:  A
-1:A A</code></pre>
-                    <h4>Sample Input/Output for "Correct output with width 4"</h4>
-                    <p>Test case 7 </p>
-                    <pre class=" language-none"><code class=" language-none">Enter the width/height of the puzzle (2, 4, 8): 4
-Enter the x-coordinate of the empty cell (0-3): 2
-Enter the y-coordinate of the empty cell (0-3): 2
-0: Exit directly (for testing checkInput function), 1: Output Quadrant of the empty cell,
-2: Output without normalization (for student's debug only), 3: Output with normalization
-Enter the output mode: 3
-Quadrant for the empty cell: 3
-  0 1 2 3
-0:A A B B
-1:A C C B
-2:D C   E
-3:D D E E</code></pre>
-                    <p>Test case 8 </p>
-                    <pre class=" language-none"><code class=" language-none">Enter the width/height of the puzzle (2, 4, 8): 4
-Enter the x-coordinate of the empty cell (0-3): 3
-Enter the y-coordinate of the empty cell (0-3): 3
-0: Exit directly (for testing checkInput function), 1: Output Quadrant of the empty cell,
-2: Output without normalization (for student's debug only), 3: Output with normalization
-Enter the output mode: 3
-Quadrant for the empty cell: 3
-  0 1 2 3
-0:A A B B
-1:A C C B
-2:D C E E
-3:D D E</code></pre>
-                    <h4>Sample Input/Output for "Correct output with width 8"</h4>
-                    <p>Test case 9 </p>
-                    <pre class=" language-none"><code class=" language-none">Enter the width/height of the puzzle (2, 4, 8): 8
-Enter the x-coordinate of the empty cell (0-7): 3
-Enter the y-coordinate of the empty cell (0-7): 1
-0: Exit directly (for testing checkInput function), 1: Output Quadrant of the empty cell,
-2: Output without normalization (for student's debug only), 3: Output with normalization
-Enter the output mode: 3
-Quadrant for the empty cell: 1
-  0 1 2 3 4 5 6 7
-0:A A B B C C D D
-1:A E B   C F F D
-2:G E E H I I F J
-3:G G H H K I J J
-4:L L M K K N O O
-5:L P M M N N Q O
-6:R P P S T Q Q U
-7:R R S S T T U U</code></pre>
-                    <p>Test case 10 </p>
-                    <pre class=" language-none"><code class=" language-none">Enter the width/height of the puzzle (2, 4, 8): 8
-Enter the x-coordinate of the empty cell (0-7): 2
-Enter the y-coordinate of the empty cell (0-7): 5
-0: Exit directly (for testing checkInput function), 1: Output Quadrant of the empty cell,
-2: Output without normalization (for student's debug only), 3: Output with normalization
-Enter the output mode: 3
-Quadrant for the empty cell: 4
-  0 1 2 3 4 5 6 7
-0:A A B B C C D D
-1:A E E B C F F D
-2:G E H H I I F J
-3:G G H K K I J J
-4:L L M M K N O O
-5:L P   M N N Q O
-6:R P P S T Q Q U
-7:R R S S T T U U</code></pre>
-
-
-                    <h2 class="mume-header" id="section-grading">Grading</h2>
-                    <h4><span class="badge badge-info">Before the deadline</span></h4>
-                    <p>Compare your outputs with the sample outputs.
-
-
-                    </p><p>In addition to the given test cases, we have hidden test cases. They are summarized in
-                        the
-                        following table:</p>
-
-                    <p><em>(*): In this project assignment, we may not able to completely isolate one feature
-                            from
-                            another feature. So, we only list out the main area in the following table.
-
-                        </em></p>
-
-                    <p> <strong style="color:red;">If your results are not correctly normalized, you will receive
-                            penalties.</strong></p>
-                    <p>If you did not get full points for the part that
-                        requires normalization, we will grade your code with correct normalization function
-                        <strong>offline</strong> to
-                        give you partial points. Your final PA2 grades might increase after ZINC grading based on the
-                        following formula:
-                    </p>
-                    <p> <strong style="color:red;">PA2_SCORE = MAX( PA2_AUTO_GRADED_ZINC_SCORE, PA2_OFFLINE_GRADING - 30
-                            ) </strong></p>
 
 
 
-                    <div class="table-responsive">
-                        <table class="table table-striped">
-                            <tbody><tr>
-                                <th>Main Area (*)</th>
-                                <th>Number of <br>Given Test Cases</th>
-                                <th>Number of <br>Hidden Test Cases</th>
-                                <th>Total Marks in Each Area</th>
+                    <h2 class="mume-header" id="section-grading-scheme">Grading Scheme</h2>
+                    <p>Each lab carries 3 points in total.</p>
 
-                            </tr>
-                            <tr>
-                                <td>Get valid Input</td>
-                                <td>2</td>
-                                <td>3</td>
-                                <td>10<br>(2 mark for each case)</td>
-
-                            </tr>
-                            <tr>
-                                <td>Get the Quadrant of input</td>
-                                <td>2</td>
-                                <td>3</td>
-                                <td>10<br>(2 mark for each case)</td>
-
-                            </tr>
-                            <tr>
-                                <td>Correct output with width 2</td>
-                                <td>2</td>
-                                <td>3</td>
-                                <td>10<br>(2 marks for each case)</td>
-
-                            </tr>
-                            <tr>
-                                <td>Correct output with width 4<br> with correct normalization</td>
-                                <td>2</td>
-                                <td>3</td>
-                                <td>30<br>(6 marks for each case)</td>
-
-                            </tr>
-                            <tr>
-                                <td>Correct output with width 8<br> with correct normalization</td>
-                                <td>2</td>
-                                <td>3</td>
-                                <td>40<br>(8 marks for each case)</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Total</strong>
-
-                                </td>
-                                <td><strong>10</strong></td>
-                                <td><strong>15</strong></td>
-                                <td>
-
-                                    <strong>MaxTotal = 100</strong>
-
-                                </td>
-
-                            </tr>
-                        </tbody></table>
-                    </div>
-
-
-                    <h2 class="mume-header" id="section-academic-integrity">Academic Integrity</h2>
-
-                    <h4><span class="badge badge-danger">Important - Academic Integrity at HKUST</span></h4>
-
-                    <p>We highly value academic integrity. Please read the
-                        <a href="https://course.cse.ust.hk/comp2011/web/code.html">Honor Code</a> section on our
-                        course
-                        webpage to
-                        make sure you understand what is considered as plagiarism and what the penalties are.
-                        The
-                        followings are some of the highlights:
-                    </p>
                     <ul>
-                        <li><strong>DO NOT try your "LUCK"</strong> - we use sophisticated plagiarism detection
-                            software
-                            to find cheaters. We also review codes for potential cases manually.
+                        <li>A student gets 1 point for attendance.</li>
+                        <li>A student gets 1 point for a successful ZINC submission (<strong class="lab_submission_filename">lab7.cpp</strong>, the filename is case-sensitive)</li>
+                        The ZINC submission <font color="red">deadline</font> is <font color="red">10 minutes after your
+                            lab class</font>. For example, if the lab end time is 12:50PM, the ZINC submission deadline
+                        is 01:00PM (i.e., 10 minutes after 12:50PM) on the same day.
+                        <li>A student gets 1 point for the Q&amp;A session with the TA
+                            <ul>
+                                <li>The list of selected students will only be shown during the lab class.</li>
+                                <li>If the student is not selected for the Q&amp;A, then <font color="red">the ZINC
+                                        submission will count for 2 points</font>.
+
+
+                                    <ul>
+                                        <li>Some examples:
+                                            <ul>
+                                                <li>If a student attended the lab, was not selected in Q and A, and
+                                                    passed all test cases in ZINC.
+                                                    <br>
+                                                    <em>1 (from attendance) + 1 (from ZINC) * 2 = 3 marks</em>
+                                                </li>
+                                                <li>
+                                                    If a student attended the lab, was not selected in Q and A, and
+                                                    passed half (50%) of the test cases in ZINC.
+                                                    <br>
+                                                    <em>1 (from attendance) + 0.5 (from ZINC) * 2 = 2 marks</em>
+                                                </li>
+                                                <li>
+                                                    If a student attended the lab, was not selected in Q and A, and
+                                                    failed all test cases in ZINC.
+                                                    <br>
+                                                    <em>1 (from attendance) + 0 (from ZINC) * 2 = 1 mark</em>
+                                                </li>
+
+                                            </ul>
+
+                                        </li>
+                                    </ul>
+
+                                </li>
+
+
+                            </ul>
                         </li>
-                        <li>The penalty (for BOTH the copier and the copiee) is not just getting a zero in your
-                            assignment. Please read the Honor Code thoroughly.
+
+
+
+                        <li>The filename is <strong class="lab_submission_filename">lab7.cpp</strong>, and submit it to ZINC.
+                            <strong>50%</strong> penalty will be given if your filename is wrong.
                         </li>
-                        <li>Serious offenders will fail the course immediately, and there may be additional
-                            disciplinary
-                            actions from the department and university, up to and including expulsion.
+                        <li>You don't need to zip the file if you only submit one file to ZINC.
+
+                            Filename checking is enabled in ZINC. If your filename is wrong, you should see something
+                            like this:
+                            <p><img src="./COMP2011 Lab 7_files/zinc_file_name.png" style="width:300px;"></p>
+
                         </li>
+
                     </ul>
-                    <p>This programming assignment is challenging, so you are highly recommended to start early.
-                        If you
-                        need clarification on the requirements, please feel free to post on Piazza.
-                        However, to avoid cluttering the forum with repeated/trivial questions, please carefully
-                        read
-                        the given code, the description, the sample output, and the latest <a href="https://course.cse.ust.hk/comp2011/assigns/pa2/web/index.html#section-faqs" "="">FAQ</a>
-                    (refresh
-                    this page regularly) in this page before
-                    you post your questions. In addition, please be reminded that we won't help debug for any student's
-                    assignment for the sake of fairness.</p>
 
-                <h2 class=" mume-header" id="section-submission">Submission</h2>
-
-                            <h4>Deadline: <span class="badge badge-danger" id="submission_deadline">11-Nov-2023 23:59</span></h4>
-
-                            <p>
-                                You are required to submit your solution to our auto-grading
-                                system: <a href="http://zinc.cse.ust.hk/">ZINC</a>. <br>
-                                Please read the
-                                <a href="https://zinc.cse.ust.hk/guide">ZINC student submission guidelines </a>
-                                if you still don't know how to submit in ZINC.
-                            </p>
-
-                            <p>
-                                The filename is <strong class="lab_submission_filename">pa2.cpp</strong>, and submit it
-                                to
-                                ZINC. <strong>50%</strong> penalty will be given if your filename is wrong.
-                                You don't need to zip the file if you only submit one file to ZINC.
-                            </p>
-
-                            <p>
-                                Filename checking is enabled in ZINC. If your filename is wrong, you should see
-                                something like this:
-
-                                </p><p>
-                                    <img src="./COMP2011 PA2_files/pa2_cpp_wrong_filename.png" style="width:300px;">
-                                </p>
-
-                            <p></p>
-
-                            <p>
-                                Other names do not work <em>
-                                    <span id="wrong_filenames">(e.g., PA2.cpp, Pa2.cpp, pa2.cpp.cpp, pa 2.cpp (a space is added between pa and 2) etc. )</span>
-                                </em>
-                            </p>
-                            <p>
-                                Notes:
-                                </p><ul>
-                                    <li>You may submit your file multiple times, but <strong>only the last
-                                            submission
-                                            will be graded</strong>. You do NOT get to choose which version we
-                                        grade. If
-                                        you submit after the deadline, late penalty will be applied according to
-                                        the
-                                        submission time of your last submission.
-                                    </li>
-
-                                    <li>Submit early to avoid any last-minute problem. Only ZINC submissions
-                                        will be
-                                        accepted.
-                                    </li>
-
-                                    <li>The ZINC server will be very busy on the last day especially in the last
-                                        few
-                                        hours. However, as long as your submission is successful, we would grade
-                                        your
-                                        latest submission with all test cases after the deadline.
-                                    </li>
-
-                                    <li>
-                                        Make sure you submit the correct file yourself. You can download your
-                                        own file
-                                        back from ZINC to verify. Again, we only grade what you uploaded last to
-                                        ZINC.
-                                    </li>
-
-                                </ul>
-                            <p></p>
-
-                            <h4>Compilation Requirements</h4>
-
-                            <p><strong style="color:red;">Make sure your program can be compiled and be able to
-                                    execute.</strong></p>
-                            <p>
-                                If we cannot even compile your work, it won't be graded. Therefore, for parts
-                                that you
-                                cannot finish, just put in dummy/empty implementation so that your whole program
-                                can be
-                                compiled for ZINC to grade the other parts that you have done.
-                            </p>
+                    <p>If a student is unable to finish the lab and demonstrate to the TA by the end of the lab, they
+                        can only get the attendance point. </p>
 
 
-                            <h4>Late Submission Policy</h4>
-                            <p>
-                                There will be a penalty of -1 point (out of a maximum 100 points) for every
-                                minute you
-                                are late.
-                                <br>In other words, if you are late for more than 100 minutes, you will get 0
-                                marks.
-                            </p>
 
 
-                            <h2 class="mume-header" id="section-faqs">FAQs</h2>
-
-                            <p>This section will be updated after the release</p>
-
-                            <div class="card p-3 mb-2">
-                                <h5 class="card-title"> My code doesn't work / there is an error, here is the
-                                    code, can
-                                    you help me fix it?</h5>
-                                <p class="card-text">
-                                    As the assignment is a major course assessment, to be fair, we should not
-                                    finish the
-                                    tasks for you.
-                                    <br>We might provide you some hints, but we won't debug for you.
-                                </p>
-                            </div>
 
 
                 </div>
@@ -1049,11 +425,11 @@ Quadrant for the empty cell: 4
     <!-- /#page-content-wrapper -->
     <!-- /#wrapper -->
     <!-- Bootstrap core JavaScript -->
-    <script src="./COMP2011 PA2_files/jquery.min.js.下載"></script>
-    <script src="./COMP2011 PA2_files/bootstrap.bundle.min.js.下載"></script>
+    <script src="./COMP2011 Lab 7_files/jquery.min.js.下載"></script>
+    <script src="./COMP2011 Lab 7_files/bootstrap.bundle.min.js.下載"></script>
 
     <!-- prims.js -->
-    <script src="./COMP2011 PA2_files/prism.js.下載"></script>
+    <script src="./COMP2011 Lab 7_files/prism.js.下載"></script>
 
     <!-- Menu Toggle Script -->
     <script>
@@ -1062,7 +438,6 @@ Quadrant for the empty cell: 4
             $("#wrapper").toggleClass("toggled");
         });
     </script>
-
 
 
 
